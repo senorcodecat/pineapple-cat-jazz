@@ -17,7 +17,7 @@ class FaqsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create faq" do
     assert_difference('Faq.count') do
-      post faqs_url, params: { faq: {  } }
+      post faqs_url, params: { faq: { answer: @faq.answer, question: @faq.question } }
     end
 
     assert_redirected_to faq_url(Faq.last)
@@ -34,7 +34,7 @@ class FaqsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update faq" do
-    patch faq_url(@faq), params: { faq: {  } }
+    patch faq_url(@faq), params: { faq: { answer: @faq.answer, question: @faq.question } }
     assert_redirected_to faq_url(@faq)
   end
 

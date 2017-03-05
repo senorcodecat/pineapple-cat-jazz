@@ -1,25 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Courses</h1>
-  <div class="col-sm-6 col-lg-6">
-    <h4><%= link_to 'New Course', new_course_path %></h4>
-                <% @courses.each do |course| %>
-                  <div class="row">
-                    <div class="card card-course">
-                          <tr>
-                            <td><h4><%= course.name %></h4></td>
-                            <td><p><%= course.description %></p></td>
-                            <td><%= course.created_at %></td>
-                            <td><%= course.updated_at %></td>
-                            <td><%= link_to 'Show', course %></td>
-                            <td><%= link_to 'Edit', edit_course_path(course) %></td>
-                            <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                          </tr>
-                        </div>
-                    </div>
-                <% end %>
-              </tbody>
-            </table>
-
-<br>
-  </div>
+<div class="col-sm-6 col-lg-6">
+  <h4><%= link_to 'New Course', new_course_path %></h4>
+    <% @courses.each do |c| %>
+      <%= render 'course', course: c %>
+    <% end %>
+  <br>
+</div>
