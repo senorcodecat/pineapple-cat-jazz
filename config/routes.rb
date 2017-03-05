@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  resources :faqs
   devise_for :users
+  resources :courses
   root to: "welcome#index" # GET / execute WelcomeController index action
   get '/about' => "welcome#about"
   get '/faq' => "welcome#faq"
   get '/pricing' => "welcome#pricing"
 
-  resources :courses
+
 
   # get '/courses' => 'courses#index'
   # get '/courses/:id' => 'courses#show'
